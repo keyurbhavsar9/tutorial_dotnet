@@ -1,0 +1,21 @@
+using System.ComponentModel.DataAnnotations;
+
+namespace tutorial_dotnet.DTOs
+{
+    public class CommandCreateDto
+    {
+
+        //id will be created by database
+        //public int id { get; set; }
+
+        [Required]
+        [MaxLength(250)]
+        public string HowTo { get; set; }
+
+        [Required]
+        public string Line { get; set; }
+
+        [Required]
+        public string Platform { get; set; }
+    }
+}

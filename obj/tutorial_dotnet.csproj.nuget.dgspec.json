@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\codeRepos\\tutorial_dotnet\\tutorial_dotnet.csproj": {}
+    "D:\\codeRepos\\tutorial_dotnet\\tutorial_dotnet.csproj": {}
   },
   "projects": {
-    "d:\\codeRepos\\tutorial_dotnet\\tutorial_dotnet.csproj": {
+    "D:\\codeRepos\\tutorial_dotnet\\tutorial_dotnet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\codeRepos\\tutorial_dotnet\\tutorial_dotnet.csproj",
+        "projectUniqueName": "D:\\codeRepos\\tutorial_dotnet\\tutorial_dotnet.csproj",
         "projectName": "tutorial_dotnet",
-        "projectPath": "d:\\codeRepos\\tutorial_dotnet\\tutorial_dotnet.csproj",
+        "projectPath": "D:\\codeRepos\\tutorial_dotnet\\tutorial_dotnet.csproj",
         "packagesPath": "C:\\Users\\bhavs\\.nuget\\packages\\",
-        "outputPath": "d:\\codeRepos\\tutorial_dotnet\\obj\\",
+        "outputPath": "D:\\codeRepos\\tutorial_dotnet\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,6 +44,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
+            "Microsoft.AspNetCore.JsonPatch": {
+              "target": "Package",
+              "version": "[6.0.0-preview.5.21301.17, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.0-preview.4.21253.1, )"
