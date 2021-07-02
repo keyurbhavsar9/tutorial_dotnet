@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using tutorial_dotnet.Models;
@@ -22,6 +23,8 @@ namespace tutorial_dotnet.Data
             _context.Commands.Add(command);
         }
 
+
+
         public IEnumerable<Command> GetAllCommands()
         {
             return _context.Commands.ToList();
@@ -41,5 +44,15 @@ namespace tutorial_dotnet.Data
         {
             //Nothing
         }
+
+        public void DeleteCommand(Command command)
+        {
+            if (command == null)
+            {
+                throw new ArgumentNullException(nameof(command));
+            }
+            _context.Commands.Remove(command);
+        }
+
     }
 }

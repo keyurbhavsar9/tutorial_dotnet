@@ -11,7 +11,8 @@ namespace tutorial_dotnet.Profiles
             //source->Destination
             CreateMap<Command, CommandReadDto>();
             CreateMap<CommandCreateDto, Command>();
-            CreateMap<CommandUpdateDTO, Command>();
+            CreateMap<CommandUpdateDTO, Command>().ReverseMap();
+            //CreateMap<Command, CommandUpdateDTO>();
         }
     }
 }

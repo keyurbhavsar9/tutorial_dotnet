@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using AutoMapper;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using tutorial_dotnet.Data;
 using tutorial_dotnet.DTOs;
@@ -75,8 +76,46 @@ namespace tutorial_dotnet.controllers
             return NoContent();
         }
 
-        // [HttpPatch]
-        // public ActionResult 
+        [HttpPatch("{id}")]
+        //patch api/command/{id}
+        public ActionResult PartialCommandUpdate(int id, JsonPatchDocument<CommandUpdateDTO> patchDoc)
+        {
+            var idCheck = _repository.GetCommandByID(id);
+            if (idCheck == null)
+            {
+                return NotFound();
+            }
+
+            var commandToPatch = _mapper.Map<CommandUpdateDTO>(idCheck);
+
+            patchDoc.ApplyTo(commandToPatch, ModelState);
+
+            if (!TryValidateModel(commandToPatch))
+            {
+                return ValidationProblem(ModelState);
+            }
+
+            _mapper.Map(commandToPatch, idCheck);
+            _repository.UpdateCommand(idCheck);
+            _repository.SaveChanges();
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        //delete api/id
+        public ActionResult deleteCommand(int id)
+        {
+            var idCheck = _repository.GetCommandByID(id);
+            if (idCheck == null)
+            {
+                return NotFound();
+            }
+            _repository.DeleteCommand(idCheck);
+            _repository.SaveChanges();
+
+            return NoContent();
+
+        }
 
 
     }
